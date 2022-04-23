@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="start-page">
+        <form class="flexbox" id="log-in">
+            <h3>Log in</h3>
+            <div class="container-1 margin-bottom">
+                <input class="simple-input" type="text" placeholder="Username or Email" name="username" required>
+                <input class="simple-input" type="password" placeholder="Password" name="password" required>
+            </div>
+            <div class="container margin-bottom">
+
+                <button class="simple-button">
+                    Send
+                </button>
+                <button class="simple-button">
+                    <a href="index.html">Back</a>
+                </button>
+            </div>
+        </form>
+
+        <form class="flexbox" id="sign-in">
+            <h3>Sign in</h3>
+            <div class="container-1 margin-bottom">
+                <input class="simple-input" type="text" placeholder="Username" name="username" minlength="2"
+                    maxlength="30" required>
+                <input class="simple-input" type="mail" placeholder="Email" name="email" required>
+                <input class="simple-input" type="password" placeholder="Password" name="password" minlength="4"
+                    required>
+                <div clas="flex">
+                    <input type="checkbox" name="policy" id="policy">
+                    <label for="policy">I have reviewed and agree with the website privacy policy and terms of
+                        use</label>
+                </div>
+            </div>
+
+
+            <div class="container margin-bottom">
+
+                <button class="simple-button">
+                    Send
+                </button>
+                <button class="simple-button">
+                    <a href="index.html">Back</a>
+                </button>
+            </div>
+        </form>
+
+    </div>
+</body>
+
+</html>
