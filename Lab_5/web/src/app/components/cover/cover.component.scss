@@ -1,0 +1,20 @@
+.img-cover{
+    width: 120px;
+    height: 192px;
+}
+
+// .cover-container{
+
+// }
+.container{
+    width: 124px;
+    height: fit-content;
+    padding: 4px;
+    display: flex;
+    flex-flow: wrap column;
+}
+
+.wrapper{
+    display: block;
+    width: 124px;
+}
