@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="start-page">
+        <div class="flexbox" id="log-in">
+            <h3>Log in</h3>
+            <div class="container-1 margin-bottom">
+                <input class="simple-input" id="l-u" type="text" placeholder="Username or Email" name="username"
+                    required>
+                <input class="simple-input" id="l-p" type="password" placeholder="Password" name="password" required>
+            </div>
+            <div class="container margin-bottom">
+                <button class="simple-button">
+                    <a href="index.html">Back</a>
+                </button>
+
+                <button class="simple-button" onclick="logIn()">
+                    Send
+                </button>
+            </div>
+        </div>
+
+        <div class="flexbox" id="sign-in">
+            <h3>Sign in</h3>
+            <div class="container-1 margin-bottom">
+                <input class="simple-input" type="text" id="s-u" placeholder="Username" name="username" minlength="2"
+                    maxlength="30" required>
+                <input class="simple-input" type="mail" id="s-e" placeholder="Email" name="email" required>
+                <input class="simple-input" type="password" id="s-p" placeholder="Password" name="password"
+                    minlength="4" required>
+                <div clas="flex">
+                    <input type="checkbox" name="policy" id="policy">
+                    <label for="policy">I have reviewed and agree with the website privacy policy and terms of
+                        use</label>
+                </div>
+            </div>
+
+
+            <div class="container margin-bottom">
+
+                <button class="simple-button">
+                    <a href="index.html">Back</a>
+                </button>
+                <button class="simple-button" onclick="signIn()">
+                    Send
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        const MY_URL = 'http://localhost:5000/';
+        let request;
+
+        function logIn() {
+            request = new XMLHttpRequest();
+            const username = document.getElementById("l-u").value;
+            const password = document.getElementById("l-p").value;
+            let data = {
+                username: username,
+                password: password,
+            }
+            request.open("GET", `${MY_URL}user/login?username=${username}&password=${password}`, true);
+            request.onreadystatechange = function () {
+                if (request.readyState == 4) {
+                    alert('success');
+                }
+            }
+            request.send(data);
+        }
+
+        function signIn() {
+            let data = {
+                username: document.getElementById("s-u").value,
+                password: document.getElementById("s-p").value,
+                email: document.getElementById("s-e").value,
+            }
+            data = JSON.stringify(data);
+            request = new XMLHttpRequest();
+            request.open("POST", `http://localhost:5000/user`);
+            request.onreadystatechange = function () {
+                if (request.readyState == 4) {
+                    alert(request.responseText);
+                }
+            }
+            request.send(data);
+        }
+    </script>
+</body>
+
+</html>
